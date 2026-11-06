@@ -1,2 +1,520 @@
 # investigation
 A very confidential birthday project
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Birthday Investigation ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f8f0e9;
+  color: #57443f;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  padding: 22px 14px;
+}
+
+.container {
+  max-width: 620px;
+  margin: 25px auto;
+  background: #fffaf5;
+  border: 1px solid #ead9d0;
+  border-radius: 22px;
+  padding: 30px 24px;
+  box-shadow: 0 12px 40px #70504412;
+}
+
+.top {
+  text-align: center;
+  color: #b17c83;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+h1 {
+  text-align: center;
+  font-size: 37px;
+  color: #875b62;
+  margin: 20px 0 10px;
+}
+
+h2 { color: #875b62; font-size: 26px; }
+
+.subtitle {
+  text-align: center;
+  line-height: 1.8;
+  color: #927c75;
+  font-size: 14px;
+}
+
+.flower {
+  text-align: center;
+  font-size: 27px;
+  margin: 15px;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.main-btn {
+  width: 100%;
+  background: #ad747e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 15px;
+  margin-top: 20px;
+  transition: .2s;
+}
+
+.main-btn:hover { background: #925d68; }
+
+.progress {
+  height: 5px;
+  background: #f0e2dc;
+  border-radius: 20px;
+  margin: 20px 0 25px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0;
+  background: #bd8590;
+  transition: .3s;
+}
+
+.chapter {
+  color: #b17c83;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.question {
+  margin: 25px 0;
+}
+
+.question h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #624d48;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #eadbd3;
+  background: #fffdfb;
+  padding: 13px 15px;
+  border-radius: 11px;
+  margin: 8px 0;
+  color: #725d56;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.option:hover {
+  background: #f9eeee;
+  border-color: #d4a6aa;
+}
+
+.option.selected {
+  background: #f5e5e6;
+  border: 1.5px solid #b77e88;
+  color: #80545d;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #e7d5ce;
+  border-radius: 10px;
+  background: #fffdfb;
+  font-family: inherit;
+  font-size: 14px;
+  color: #57443f;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: #bd8590;
+}
+
+textarea {
+  min-height: 75px;
+  resize: vertical;
+}
+
+.hint {
+  font-size: 11px;
+  color: #a18a81;
+  margin-top: 7px;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.nav button { flex: 1; }
+
+.back {
+  background: transparent;
+  border: 1px solid #dec9c1;
+  color: #80665e;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.note {
+  background: #f8eee9;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #8d6c66;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+.result {
+  background: #fffdfb;
+  border: 1px dashed #c99da0;
+  padding: 20px;
+  border-radius: 15px;
+  white-space: pre-wrap;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.hidden { display: none; }
+
+.footer {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #b18b85;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- WELCOME PAGE -->
+<div id="welcome">
+  <div class="top">✧ THE OFFICIAL BIRTHDAY BUREAU ✧</div>
+  <div class="flower">୨୧ ♡ ୨୧</div>
+  <h1>A Little Birthday<br>Investigation</h1>
+  <p class="subtitle">
+    A very important questionnaire for a very important person.<br><br>
+    Your birthday is approaching, and someone (me) requires
+    some extremely confidential information.
+  </p>
+
+  <div class="note">
+    ⚠ NOTICE: Please answer honestly. Your answers may be
+    used to determine your birthday present.
+    <br><br>
+    Estimated time: 4–6 minutes.
+    <br>Confidentiality: questionable.
+  </div>
+
+  <button class="main-btn" onclick="startQuiz()">
+    Begin the investigation ♡
+  </button>
+  <div class="footer">prepared with suspicious amounts of love</div>
+</div>
+
+<!-- QUIZ PAGE -->
+<div id="quiz" class="hidden">
+  <div class="top">THE BIRTHDAY BUREAU · CONFIDENTIAL</div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="chapter" id="chapter"></div>
+  <div id="questions"></div>
+
+  <div class="nav">
+    <button class="back" id="back" onclick="previous()">← Back</button>
+    <button class="main-btn" id="next" onclick="next()" style="margin:0">
+      Next →
+    </button>
+  </div>
+  <div class="footer">be honest. we are watching. ♡</div>
+</div>
+
+<!-- FINAL PAGE -->
+<div id="final" class="hidden">
+  <div class="top">INVESTIGATION COMPLETED</div>
+  <div class="flower">✿ ♡ ✿</div>
+  <h1>Case Closed!</h1>
+  <p class="subtitle">
+    Your birthday demands have been officially documented.
+    The committee will now review your application.
+  </p>
+  <div class="result" id="report"></div>
+  <button class="main-btn" onclick="copyReport()">
+    Copy my birthday wishlist ♡
+  </button>
+  <p class="subtitle" style="margin-top:20px">
+    Send this report to your investigator immediately.
+  </p>
+  <div class="footer">Happy almost birthday, you menace. ♡</div>
+</div>
+
+</div>
+
+<script>
+const sections = [
+{
+ title: "01 · The General Interrogation",
+ questions: [
+  {q:"If you could receive ANYTHING right now, what would it be?",
+   a:["Something I've wanted forever","Something I didn't know I needed","Something sentimental","Something expensive (obviously)","A complete surprise"]},
+  {q:"What kind of gift makes you happiest?",
+   a:["Something useful","Something pretty","Something meaningful","Something luxurious","Something ridiculously fun"]},
+  {q:"What have you been wanting lately but haven't bought for yourself?",
+   type:"text", hint:"Be specific. We need evidence."}
+ ]
+},
+{
+ title: "02 · Identify the Gift",
+ questions: [
+  {q:"Which gift category would excite you most? (Choose up to 3)",
+   a:["Jewellery / accessories","Clothes / handbags","Makeup / skincare","Books / stationery","Room decor","Gadgets / technology","Handmade gifts","Experiences / outings"],multi:3},
+  {q:"Let's narrow it down. What would you actually choose?",
+   a:["A necklace or bracelet","A cute handbag or wallet","A perfume or beauty product","A book or journal","A room decoration","A customised item","A surprise mystery box"]},
+  {q:"Is there a particular product or item you've been eyeing?",
+   type:"text",hint:"Name, brand, model, anything!"},
+  {q:"Paste a shopping or Pinterest link if you have one.",
+   type:"text",hint:"Optional, but extremely useful."}
+ ]
+},
+{
+ title: "03 · The Aesthetic Department",
+ questions: [
+  {q:"Choose your favourite colour palette.",
+   a:["Blush pink & cream","Burgundy & dark red","Brown & beige","Black & silver","Sage green & ivory","Lavender & white","Gold & champagne","Anything colourful"]},
+  {q:"Which aesthetic feels most like you?",
+   a:["Coquette / bows & lace","Vintage / old-fashioned","Minimalist / clean","Dark feminine","Old money / elegant","Cottagecore / floral","Cute & playful","Pinterest-inspired"]},
+  {q:"Gold or silver?",
+   a:["Gold","Silver","Rose gold","I wear everything"]},
+  {q:"What kind of design do you prefer?",
+   a:["Delicate and dainty","Bold and statement-making","Cute and playful","Classy and timeless","Simple and practical"]}
+ ]
+},
+{
+ title: "04 · The Tiny Details",
+ questions: [
+  {q:"What scents do you enjoy?",
+   a:["Vanilla / sweet","Floral","Fruity","Fresh and clean","Woody / warm","I dislike strong scents","No preference"]},
+  {q:"Which material or finish do you prefer?",
+   a:["Gold-toned metal","Silver-toned metal","Leather","Fabric / soft materials","Wood / natural materials","No preference"]},
+  {q:"Personalised gifts?",
+   a:["YES, my name or initials!","Something customised but subtle","No personalisation, please","Depends on the item"]},
+  {q:"What is something you absolutely DON'T want?",
+   type:"text",hint:"Please save your investigator from making a terrible decision."}
+ ]
+},
+{
+ title: "05 · Sentimental Evidence",
+ questions: [
+  {q:"Which would make you happiest?",
+   a:["A handwritten letter","A photo album","A scrapbook","A customised keepsake","Something connected to a memory","No emotional damage, thank you"]},
+  {q:"Would you like an inside joke or a shared memory included?",
+   a:["Absolutely!","Maybe, if it's subtle","I'd prefer something more elegant","Nope"]},
+  {q:"What matters most in a present?",
+   a:["The gift itself","The thought behind it","The presentation","The memory attached to it"]}
+ ]
+},
+{
+ title: "06 · Birthday Experience",
+ questions: [
+  {q:"Your ideal birthday outing?",
+   a:["A cute cafe date","Shopping day","Movie date","Picnic","Dinner","A little road trip","Staying in and relaxing"]},
+  {q:"How do you like surprises?",
+   a:["Surprise me completely!","Give me little hints","Tell me the plan beforehand","I don't like surprises"]},
+  {q:"Would you prefer an experience alongside a physical gift?",
+   a:["Definitely","Just a physical gift","Just an experience","Either is fine"]}
+ ]
+},
+{
+ title: "07 · The Gift Logistics",
+ questions: [
+  {q:"One big gift or multiple little gifts?",
+   a:["One big present","Lots of little presents","A combination of both","Surprise me"]},
+  {q:"How should your gift be presented?",
+   a:["A beautifully wrapped box","A gift basket","Multiple little envelopes","A mystery box","Simple and elegant wrapping"]},
+  {q:"What kind of gift would you use most?",
+   a:["Something for everyday","Something for special occasions","Something to display","Something to collect","Something practical"]}
+ ]
+},
+{
+ title: "08 · Final Confession",
+ questions: [
+  {q:"Describe your dream birthday gift in one sentence.",
+   type:"text",hint:"This is your moment. Dream big."},
+  {q:"What is one thing you secretly hope I get you?",
+   type:"text",hint:"No judgement. Probably."},
+  {q:"Anything else your birthday committee should know?",
+   type:"text",hint:"Last chance to submit evidence."}
+ ]
+}
+];
+
+let sectionIndex = 0;
+let answers = {};
+let selections = {};
+
+function startQuiz(){
+ document.getElementById("welcome").classList.add("hidden");
+ document.getElementById("quiz").classList.remove("hidden");
+ render();
+}
+
+function render(){
+ const section = sections[sectionIndex];
+ document.getElementById("chapter").textContent = section.title;
+ document.getElementById("bar").style.width =
+ ((sectionIndex+1)/sections.length*100)+"%";
+
+ const area = document.getElementById("questions");
+ area.innerHTML = "";
+
+ section.questions.forEach((item,i)=>{
+  const key = sectionIndex+"-"+i;
+  const div = document.createElement("div");
+  div.className = "question";
+
+  const heading = document.createElement("h3");
+  heading.textContent = (i+1)+". "+item.q;
+  div.appendChild(heading);
+
+  if(item.type === "text"){
+   const input = document.createElement("textarea");
+   input.placeholder = "Type your answer here...";
+   input.value = answers[key] || "";
+   input.addEventListener("input",()=>answers[key]=input.value);
+   div.appendChild(input);
+   if(item.hint){
+    const hint=document.createElement("div");
+    hint.className="hint";
+    hint.textContent=item.hint;
+    div.appendChild(hint);
+   }
+  } else {
+   const chosen = selections[key] || [];
+   item.a.forEach(option=>{
+    const btn=document.createElement("button");
+    btn.className="option";
+    btn.textContent=option;
+    if(chosen.includes(option))btn.classList.add("selected");
+
+    btn.onclick=()=>{
+     let current=selections[key]||[];
+     if(item.multi){
+      if(current.includes(option)){
+       current=current.filter(x=>x!==option);
+      }else if(current.length<item.multi){
+       current.push(option);
+      }else{
+       alert("Maximum "+item.multi+" choices! The committee is strict.");
+      }
+     }else{
+      current=[option];
+     }
+     selections[key]=current;
+     render();
+    };
+    div.appendChild(btn);
+   });
+   if(item.multi){
+    const hint=document.createElement("div");
+    hint.className="hint";
+    hint.textContent="Choose up to "+item.multi+" options.";
+    div.appendChild(hint);
+   }
+  }
+  area.appendChild(div);
+ });
+
+ document.getElementById("back").style.visibility =
+ sectionIndex===0?"hidden":"visible";
+
+ document.getElementById("next").textContent =
+ sectionIndex===sections.length-1?"Submit application ♡":"Next →";
+}
+
+function next(){
+ if(sectionIndex<sections.length-1){
+  sectionIndex++;
+  render();
+ }else{
+  finish();
+ }
+}
+
+function previous(){
+ if(sectionIndex>0){
+  sectionIndex--;
+  render();
+ }
+}
+
+function finish(){
+ let report="♡ THE OFFICIAL BIRTHDAY WISHLIST ♡\n";
+ report+="================================\n\n";
+
+ sections.forEach((section,s)=>{
+  report+=section.title+"\n";
+  section.questions.forEach((q,i)=>{
+   const key=s+"-"+i;
+   const answer=q.type==="text"
+    ?(answers[key]||"Not specified")
+    :(selections[key]||[]).join(", ")||"Not specified";
+   report+=q.q+"\n→ "+answer+"\n\n";
+  });
+ });
+
+ report+="================================\n";
+ report+="Submitted to the birthday committee ♡";
+
+ document.getElementById("report").textContent=report;
+ document.getElementById("quiz").classList.add("hidden");
+ document.getElementById("final").classList.remove("hidden");
+ window.finalReport=report;
+}
+
+function copyReport(){
+ if(navigator.clipboard && window.isSecureContext){
+  navigator.clipboard.writeText(window.finalReport)
+   .then(()=>alert("Wishlist copied! Send it to your investigator ♡"))
+   .catch(()=>alert("Please select and copy the report manually."));
+ }else{
+  alert("Please select and copy the report manually.");
+ }
+}
+</script>
+</body>
+</html>
